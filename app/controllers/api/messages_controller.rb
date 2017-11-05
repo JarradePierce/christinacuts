@@ -16,7 +16,7 @@ class Api::MessagesController < Api::ApiController
     @message = Message.new(message_params)
 
     if @message.save
-      redirect_to "http://localhost:9393/home"
+      redirect_to "https://christinacuts.herokuapp.com"
     else
       "Did not save"
     end
