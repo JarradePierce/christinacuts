@@ -29,5 +29,10 @@ module ChrisyCutzApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.action_dispatch.default_headers = {
+        'Access-Control-Allow-Origin' => 'http://file:///C:/Users/slim/Desktop/chrisitinacuts/index.html',
+        'Access-Control-Request-Method' => %w{POST}.join(",")
+    }
   end
 end
