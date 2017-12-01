@@ -30,9 +30,12 @@ module ChrisyCutzApi
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.action_dispatch.default_headers = {
-        'Access-Control-Allow-Origin' => 'http://file:///C:/Users/slim/Desktop/chrisitinacuts/index.html',
-        'Access-Control-Request-Method' => %w{POST}.join(",")
-    }
+    config.middleware.insert_before 0, Rack::Cors do 
+        allow do 
+            origins '*'
+            resource '*', :headers => :any, :methods => [:post]
+        end
+    end
+
   end
 end
