@@ -16,7 +16,7 @@ class Api::MessagesController < Api::ApiController
     @message = Message.new(message_params)
 
     if @message.save
-      redirect_to "https://christinacuts.herokuapp.com"
+      p @message
     else
       "Did not save"
     end
@@ -25,6 +25,6 @@ class Api::MessagesController < Api::ApiController
   private
 
   def message_params
-    params.permit(:name, :email, :phone, :note)
+    params.permit(:data_value)
   end
 end
