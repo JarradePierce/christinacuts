@@ -13,13 +13,20 @@ class Api::MessagesController < Api::ApiController
   end
 
   def create
+    if request.xhr?
     @message = Message.new(message_params)
 
-    if @message.save
-      p @message
+      if @message.save
+        p @message
+      else
+        "Did not save"
+      end
+      
     else
-      "Did not save"
+      @errors = @message.errors
+      p @errors
     end
+
   end
 
   private
