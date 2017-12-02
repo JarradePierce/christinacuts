@@ -21,10 +21,9 @@ class Api::MessagesController < Api::ApiController
       else
         "Did not save"
       end
-      
+
     else
-      @errors = @message.errors
-      p @errors
+      @errors = ['error']
     end
 
   end
