@@ -14,16 +14,19 @@ class Api::MessagesController < Api::ApiController
 
   def create
     if request.xhr?
-    @message = Message.new(message_params)
-
-      if @message.save
-        p @message
+      @message = Message.new(params[:note_data])
+      if @message.valid?
+        @message.save
       else
-        "Did not save"
+        p 'error'
       end
-
     else
-      @errors = ['error']
+        @message = Message.new(message_params)
+        if @message.save
+          p 'message save successful'
+        else
+          p 'error'
+        end
     end
 
   end
