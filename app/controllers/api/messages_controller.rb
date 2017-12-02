@@ -25,6 +25,6 @@ class Api::MessagesController < Api::ApiController
   private
 
   def message_params
-    params.permit(:data_value)
+    params.permit(:name, :email, :phone, :note)
   end
 end
