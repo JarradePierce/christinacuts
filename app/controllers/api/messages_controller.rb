@@ -17,6 +17,7 @@ class Api::MessagesController < Api::ApiController
       @message = Message.new(params[:note_data])
       if @message.valid?
         @message.save
+        status 200
       else
         p 'error'
       end
